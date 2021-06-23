@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FormEvent, useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { database } from '../services/firebase'
@@ -12,12 +12,13 @@ import '../styles/auth.scss'
 
 export function NewRoom() {
   const { user } = useAuth()
-
+  const history = useHistory()
   const [newRoom, setNewRoom] = useState('')
 
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault()
 
+    // Verify if the room name is empty
     if (newRoom.trim() === '') {
       return;
     }
@@ -25,11 +26,14 @@ export function NewRoom() {
     // Finding in db a reference called rooms
     const roomRef = database.ref('rooms')
 
-    // Inserting an information in rooms
+    // Inserting an information in rooms in database
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
     })
+
+    // Redirecting user to created room
+    history.push(`/rooms/${firebaseRoom.key}`)
   }
 
   return(
