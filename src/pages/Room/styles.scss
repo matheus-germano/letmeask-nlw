@@ -27,7 +27,7 @@
 
       h1 {
         font-family: "Poppins", sans-serif;
-        font-size: 24px;
+        font-size: 1.5rem;
         color: #29292e;
       }
 
@@ -38,7 +38,7 @@
         padding: 8px 16px;
         color: #fff;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
     }
 
@@ -74,12 +74,12 @@
             margin-left: 8px;
             color: #29292e;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 0.875rem;
           }
         }
 
         > span {
-          font-size: 14px;
+          font-size: 0.875rem;
           color: #737380;
           font-weight: 500;
 
@@ -88,7 +88,7 @@
             border: 0;
             color: #835afd;
             text-decoration: underline;
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 500;
             cursor: pointer;
           }
@@ -98,6 +98,46 @@
 
     .question-list {
       margin-top: 32px;
+    }
+  }
+}
+
+@media (max-width: 956px) {
+  #page-room {
+    main {
+      padding: 24px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #page-room {
+    header .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    main {
+      padding: 24px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  #page-room {
+    main {
+      padding: 24px;
+
+      .room-title {
+        h1 {
+          font-size: 1.25rem !important;
+        }
+
+        span {
+          font-size: 0.75rem !important;
+        }
+      }
     }
   }
 }

@@ -34,3 +34,9 @@
     cursor: not-allowed;
   }
 }
+
+@media (max-width: 450px) {
+  .button {
+    font-size: 90%;
+  }
+}
